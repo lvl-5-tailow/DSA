@@ -31,6 +31,27 @@ class List{
                 head = newNode;
             }
         }
+
+        // Function to add a new node at the front of the linked list
+        void push_back(int val){
+            Node* newNode = new Node(val); //created a new node
+            if(head == NULL){    //for empty list, head and tail will point to the new node
+                head = tail = newNode;
+            } else {
+                newNode->next = tail;
+                tail = newNode;
+            }
+        }
+
+        void printLL(){
+            Node* temp = head;   //temp will initially point to where the head is pointing 
+
+            while( temp != NULL){
+                cout << temp <<" ";
+                temp = temp->next;
+            }
+            cout<<" "<<endl;
+        }
 };
 
 
@@ -40,6 +61,8 @@ int main() {
     myList.push_front(1);    //added a new node with value 1 at the front of the linked list
     myList.push_front(2);
     myList.push_front(3); 
+    myList.push_back(4);    //added a new node with value 4 at the back of the linked list
+    myList.printLL();   //printed the linked list
 
 
     return 0;  
