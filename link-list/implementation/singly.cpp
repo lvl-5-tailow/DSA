@@ -20,8 +20,27 @@ class List{
         List() {
             head = tail = NULL;   //head and tail are initialized to NULL, indicating an empty list
         }
+        // Function to add a new node at the front of the linked list
+        void push_front(int val) {
+            Node* newNode = new Node(val);   //created a new Node
+            if(head == NULL){    //for empty list, head and tail will point to the new node
+                head = tail = newNode;
+            }
+            else{    //for non-empty list, new node will be added at the front and head will point to the new node
+                newNode->next = head;
+                head = newNode;
+            }
+        }
 };
 
+
+
 int main() {
-    return 0;
+    List myList;   //created an object of List class
+    myList.push_front(1);    //added a new node with value 1 at the front of the linked list
+    myList.push_front(2);
+    myList.push_front(3); 
+
+
+    return 0;  
 }
