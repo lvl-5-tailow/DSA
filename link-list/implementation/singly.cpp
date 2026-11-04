@@ -32,7 +32,7 @@ class List{
             }
         }
 
-        // Function to add a new node at the front of the linked list
+        // Function to add a new node at the back of the linked list   
         void push_back(int val){
             Node* newNode = new Node(val); //created a new node
             if(head == NULL){    //for empty list, head and tail will point to the new node
@@ -43,6 +43,41 @@ class List{
             }
         }
 
+        // Function to remove a node from the front of the linked list
+        void pop_front(){
+            if( head == NULL){
+                cout<<"LL is empty/n";
+                return;
+            } else {
+                Node* temp = head;
+                head = head->next;
+                temp->next = NULL;
+                delete temp;
+            }
+        }
+
+
+        // Function to remove a node from the end of the linked list
+        void pop_back(){
+            if( head == NULL){
+                cout<<"LL is empty/n";
+                return;
+            } else {
+                Node* temp = head;
+                while( temp->next != tail){
+                    temp = temp->next;
+                }
+                temp->next = NULL;
+                delete tail;
+                tail = temp;
+            }
+        }
+
+
+        //function to insert a new node in the middle of the linked list
+
+
+         // Function to print the linked list
         void printLL(){
             Node* temp = head;   //temp will initially point to where the head is pointing 
 
@@ -65,5 +100,5 @@ int main() {
     myList.printLL();   //printed the linked list
 
 
-    return 0;  
+    return 0;
 }
